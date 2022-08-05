@@ -12,7 +12,7 @@ sudo apt-get update &&\
 cp vimrc ~/.vimrc
 
 
-if [! which conda ]; then
+if [ ! which conda ]; then
 PYTHON_MINICONDA_VER='py39'
 MINICONDA_VER='4.12.0'
 
