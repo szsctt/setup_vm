@@ -21,6 +21,9 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-${PYTHON_MINICONDA_VER}_${MI
 bash Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
 rm Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
 fi
+conda install -y -c conda-forge mamba
+
+
 # docker
 
 if ! which docker; then
