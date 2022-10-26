@@ -21,6 +21,7 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-${PYTHON_MINICONDA_VER}_${MI
 bash Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
 rm Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
 source ~/.bashrc
+conda update -y conda
 fi
 conda install -y -c conda-forge mamba
 
