@@ -5,13 +5,14 @@ set -e
 # https://www.rc.virginia.edu/userinfo/howtos/rivanna/launch-rserver/
 
 IMG='rstudio.sif'
-DOCKER='docker://szctt/rbio:v1.3'
+DOCKER='docker://szsctt/rbio:v1.3'
 
 if [ ! -e ${IMG} ]; then
 	singularity pull ${PWD}/${IMG} ${DOCKER}
 	echo "finished pulling"
 fi
 
+WD=$(pwd)
 cd ..
 
 TMPDIR=rstudio-tmp 
@@ -30,5 +31,5 @@ singularity exec \
     -B $TMPDIR/var/lib:/var/lib/rstudio-server \
     -B $TMPDIR/database.conf:/etc/rstudio/database.conf \
     -B $TMPDIR/tmp:/tmp \
-    ${PWD}/${IMG} \
+    ${WD}/${IMG} \
     rserver --server-user=$(whoami) --www-port=8888
