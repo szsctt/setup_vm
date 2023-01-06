@@ -6,7 +6,11 @@ gcloud compute instances create instance-1 --project=mine-355502 --zone=australi
 gcloud compute ssh instance-1
 
 gcloud compute ssh instance-1 -- -NL 8888:localhost:8888 
+
+gcloud compute instances set-machine-type instance-1 --machine-type e2-highmem-2
 ```
+
+[List of instance types on GCP](https://gcpinstances.doit-intl.com/)
 
 
 
