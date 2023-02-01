@@ -17,3 +17,8 @@ gcloud compute instances set-machine-type instance-1 --machine-type e2-highmem-2
 Access:
 https://cloud.google.com/architecture/building-internet-connectivity-for-private-vms
 
+
+Sharing images between accounts:
+[creating](https://cloud.google.com/compute/docs/images/create-custom)
+[sharing](https://cloud.google.com/compute/docs/images/managing-access-custom-images)
+
