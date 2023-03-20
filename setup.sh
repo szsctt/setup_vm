@@ -7,7 +7,8 @@ sudo apt-get update &&\
 	sudo apt-get -y install \
 	tmux \
 	wget \
-	git
+	git \
+	neovim
 
 cp vimrc ~/.vimrc
 
