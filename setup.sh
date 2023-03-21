@@ -1,22 +1,22 @@
 #!/bin/bash
 set -e
 
-
 # general stuff
 sudo apt-get update &&\
 	sudo apt-get -y install \
 	tmux \
 	wget \
-	git
+	git \
+    nodejs
+
 
 cp vimrc ~/.vimrc
 
-
+# miniconda
 if  ! which conda; then
 PYTHON_MINICONDA_VER='py39'
 MINICONDA_VER='4.12.0'
 
-# miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
 bash Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
 rm Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
@@ -25,6 +25,30 @@ conda update -y conda
 fi
 conda install -y -c conda-forge mamba
 
+
+
+# nvim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+mkdir ~/nvim && mv nvim.appimage ~/nvim/nvim
+
+echo 'export PATH=~/nvim:$PATH' >> ~/.bashrc && \
+  source ~/.bashrc
+
+python3 -m pip install --user --upgrade pynvim
+
+# plugins
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+# nvim config
+mkdir -p ~/.config/nvim
+cp init.vim ~/.config/nvim/init.vim
+
+# node.js for nvim
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bashrc
+source ~/.bashrc
+nvm install stable --reinstall-packages-from=current
 
 # docker
 
