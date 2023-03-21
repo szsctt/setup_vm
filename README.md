@@ -22,3 +22,8 @@ Sharing images between accounts:
 [creating](https://cloud.google.com/compute/docs/images/create-custom)
 [sharing](https://cloud.google.com/compute/docs/images/managing-access-custom-images)
 
+
+Creating ssh key:
+https://www.linode.com/docs/guides/use-public-key-authentication-with-ssh/
+
+
