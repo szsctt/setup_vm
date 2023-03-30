@@ -24,7 +24,7 @@ source ~/.bashrc
 conda update -y conda
 fi
 conda install -y -c conda-forge mamba
-
+conda config --set channel_priority strict
 
 
 # nvim
@@ -49,6 +49,10 @@ cp init.vim ~/.config/nvim/init.vim
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bashrc
 source ~/.bashrc
 nvm install stable --reinstall-packages-from=current
+
+# gituhub copilot
+git clone https://github.com/github/copilot.vim \
+   ~/.config/nvim/pack/github/start/copilot.vim
 
 # docker
 
