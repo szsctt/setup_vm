@@ -25,6 +25,7 @@ conda update -y conda
 fi
 conda install -y -c conda-forge mamba
 conda config --set channel_priority strict
+conda install -y -c conda-forge mamba pip
 
 
 # nvim
@@ -46,7 +47,7 @@ mkdir -p ~/.config/nvim
 cp init.vim ~/.config/nvim/init.vim
 
 # node.js for nvim
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bashrc
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source ~/.bashrc
 nvm install stable --reinstall-packages-from=current
 
