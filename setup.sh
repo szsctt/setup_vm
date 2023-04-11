@@ -25,7 +25,7 @@ conda update -y conda
 fi
 conda install -y -c conda-forge mamba
 conda config --set channel_priority strict
-conda install -y -c conda-forge mamba pip
+mamba install -y -c conda-forge pip
 
 
 # nvim
@@ -81,7 +81,7 @@ wget https://go.dev/dl/go1.19.linux-amd64.tar.gz &&\
 echo 'export PATH=/usr/local/go/bin:$PATH' >> ~/.bashrc && \
   source ~/.bashrc
 
-export VERSION=3.10.0 && # adjust this as necessary \
+export VERSION=3.11.0 && # adjust this as necessary \
     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-ce-${VERSION}.tar.gz && \
     tar -xzf singularity-ce-${VERSION}.tar.gz && \
     cd singularity-ce-${VERSION}
