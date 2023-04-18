@@ -26,4 +26,4 @@ Sharing images between accounts:
 Creating ssh key:
 https://www.linode.com/docs/guides/use-public-key-authentication-with-ssh/
 
-
+[fastsetup from fastai](https://github.com/fastai/fastsetup.git)
