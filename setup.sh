@@ -7,7 +7,8 @@ sudo apt-get update &&\
 	tmux \
 	wget \
 	git \
-    nodejs
+    nodejs \
+    neovim
 
 
 cp vimrc ~/.vimrc
@@ -27,15 +28,7 @@ conda install -y -c conda-forge mamba
 conda config --set channel_priority strict
 mamba install -y -c conda-forge pip
 
-
 # nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-mkdir ~/nvim && mv nvim.appimage ~/nvim/nvim
-
-echo 'export PATH=~/nvim:$PATH' >> ~/.bashrc && \
-  source ~/.bashrc
-
 python3 -m pip install --user --upgrade pynvim
 
 # plugins
