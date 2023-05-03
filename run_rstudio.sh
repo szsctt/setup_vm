@@ -31,5 +31,6 @@ singularity exec \
     -B $TMPDIR/var/lib:/var/lib/rstudio-server \
     -B $TMPDIR/database.conf:/etc/rstudio/database.conf \
     -B $TMPDIR/tmp:/tmp \
+    -B $TMPDIR/home:/home \
     ${WD}/${IMG} \
     rserver --server-user=$(whoami) --www-port=8888
