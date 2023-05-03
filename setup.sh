@@ -8,7 +8,6 @@ sudo apt-get update &&\
 	wget \
 	git \
     nodejs \
-    neovim \
     bzip2 \
     tar
 
@@ -24,6 +23,11 @@ echo 'alias mamba="micromamba"' >> .bashrc
 ehcho 'mamba activate base' >> .bashrc
 
 # nvim
+mkdir ~/nvim
+wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage --appimage-extract
+echo alias nvim="${PWD}/squashfs-root/usr/bin/nvim" >> ~/.bashrc
 python3 -m pip install --user --upgrade pynvim
 
 # plugins
@@ -42,6 +46,7 @@ nvm install stable --reinstall-packages-from=current
 # gituhub copilot
 git clone https://github.com/github/copilot.vim \
    ~/.config/nvim/pack/github/start/copilot.vim
+# need to open nvim and do :Copilot setup
 
 # docker
 if ! which docker; then
