@@ -5,7 +5,7 @@ set -e
 # https://www.rc.virginia.edu/userinfo/howtos/rivanna/launch-rserver/
 
 IMG='rstudio.sif'
-DOCKER='docker://szsctt/rbio:v1.3'
+DOCKER='docker://szsctt/rbio:v1.4'
 
 if [ ! -e ${IMG} ]; then
 	singularity pull ${PWD}/${IMG} ${DOCKER}
