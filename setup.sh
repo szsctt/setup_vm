@@ -7,35 +7,27 @@ sudo apt-get update &&\
 	tmux \
 	wget \
 	git \
-    nodejs
+    nodejs \
+    bzip2 \
+    tar
 
+#cp vimrc ~/.vimrc
 
-cp vimrc ~/.vimrc
+# mamba
+# https://mamba.readthedocs.io/en/latest/installation.html
+curl micro.mamba.pm/install.sh | bash
 
-# miniconda
-if  ! which conda; then
-PYTHON_MINICONDA_VER='py39'
-MINICONDA_VER='4.12.0'
-
-wget https://repo.anaconda.com/miniconda/Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
-bash Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
-rm Miniconda3-${PYTHON_MINICONDA_VER}_${MINICONDA_VER}-Linux-x86_64.sh
-source ~/.bashrc
-conda update -y conda
-fi
-conda install -y -c conda-forge mamba
-conda config --set channel_priority strict
+#mamba config --set channel_priority strict
 mamba install -y -c conda-forge pip
-
+echo 'alias mamba="micromamba"' >> .bashrc
+ehcho 'mamba activate base' >> .bashrc
 
 # nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+mkdir ~/nvim
+wget https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
 chmod u+x nvim.appimage
-mkdir ~/nvim && mv nvim.appimage ~/nvim/nvim
-
-echo 'export PATH=~/nvim:$PATH' >> ~/.bashrc && \
-  source ~/.bashrc
-
+./nvim.appimage --appimage-extract
+echo alias nvim="${PWD}/squashfs-root/usr/bin/nvim" >> ~/.bashrc
 python3 -m pip install --user --upgrade pynvim
 
 # plugins
@@ -54,9 +46,9 @@ nvm install stable --reinstall-packages-from=current
 # gituhub copilot
 git clone https://github.com/github/copilot.vim \
    ~/.config/nvim/pack/github/start/copilot.vim
+# need to open nvim and do :Copilot setup
 
 # docker
-
 if ! which docker; then
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh ./get-docker.sh
@@ -64,7 +56,6 @@ rm get-docker.sh
 fi
 
 # singularity 
-
 if ! which singularity; then
 sudo apt-get install -y \
    build-essential \
