@@ -9,12 +9,13 @@ cp init.vim /home/ubuntu/.config/nvim/init.vim
 cd /home/ubuntu
 
 # mamba
-curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
-bin/micromamba shell init -s bash -p /home/ubuntu/conda
+if [ ! -e bin/micromamba ]; then
+  curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+  bin/micromamba shell init -s bash -p /home/ubuntu/conda
+fi
   
 eval "$(bin/micromamba shell hook --shell=bash --prefix /home/ubuntu/conda)"
-bin/micromamba activate base
-bin/micromamba install -c conda-forge pip -y
+bin/micromamba install -n base -c conda-forge pip -y
 /home/ubuntu/conda/bin/pip install oci-cli pynvim
   
 echo 'alias mamba=micromamba' >> /home/ubuntu/.bashrc
