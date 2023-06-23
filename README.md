@@ -6,8 +6,10 @@ cloud-init script:
 ```
 #!/bin/bash
 sleep 60
+cd /home/ubuntu/
 git clone https://github.com/szsctt/setup_vm.git
-sudo -u ubuntu bash -c setup_vm/oci_setup.sh
+sudo chown -R ubuntu:ubuntu /home/ubuntu/setup_vm
+sudo -u ubuntu -c bash /home/ubuntu/setup_vm/oci_setup.sh
 ```
 
 Find logs at:
