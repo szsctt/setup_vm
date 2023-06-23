@@ -11,6 +11,7 @@ cd /home/ubuntu
 if [ ! -e bin/micromamba ]; then
   curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
   bin/micromamba shell init -s bash -p /home/ubuntu/conda
+  bin/micromamba config set auto_activate_base true
 fi
 
 export MAMBA_EXE="/home/ubuntu/bin/micromamba"
