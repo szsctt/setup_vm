@@ -20,13 +20,13 @@ bin/micromamba install -n base -c conda-forge pip -y
 echo 'alias mamba=micromamba' >> /home/ubuntu/.bashrc
 echo 'alias conda=micromamba' >> /home/ubuntu/.bashrc
 echo 'export PATH="/home/ubuntu/bin:$PATH' >> /home/ubuntu/.bashrc
-
-source /home/ubuntu/.bashrc
+export PATH="/home/ubuntu/bin:$PATH
 
 # nvim
 sudo add-apt-repository universe -y && sudo apt-get install -y libfuse2
 wget -O /home/ubuntu/bin/nvim.appimage  https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
 chmod u+x /home/ubuntu/bin/nvim.appimage
+mv /home/ubuntu/bin/nvim.appimage /home/ubuntu/bin/nvim
 
 mkdir -p /home/ubuntu/.config/nvim
 cp /home/ubuntu/setup_vm/init.vim /home/ubuntu/.config/nvim/init.vim
@@ -60,8 +60,8 @@ wget https://go.dev/dl/go1.19.linux-amd64.tar.gz &&\
       sudo tar -C /usr/local -xzvf go1.19.linux-amd64.tar.gz &&\
       rm go1.19.linux-amd64.tar.gz
 
-echo 'export PATH=/usr/local/go/bin:$PATH' >> /home/ubuntu/.bashrc && \
-  source /home/ubuntu/.bashrc
+echo 'export PATH=/usr/local/go/bin:$PATH' >> /home/ubuntu/.bashrc
+export PATH=/usr/local/go/bin:$PATH
 
 export VERSION=3.11.0 && # adjust this as necessary \
     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-ce-${VERSION}.tar.gz && \
