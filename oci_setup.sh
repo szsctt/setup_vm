@@ -22,7 +22,7 @@ bin/micromamba install -n base -c conda-forge pip -y
 echo 'alias mamba=micromamba' >> /home/ubuntu/.bashrc
 echo 'alias conda=micromamba' >> /home/ubuntu/.bashrc
 echo 'export PATH="/home/ubuntu/bin:$PATH' >> /home/ubuntu/.bashrc
-export PATH="/home/ubuntu/bin:$PATH
+export PATH="/home/ubuntu/bin:$PATH"
 
 # nvim
 sudo add-apt-repository universe -y && sudo apt-get install -y libfuse2
