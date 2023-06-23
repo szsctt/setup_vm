@@ -10,6 +10,9 @@ git clone https://github.com/szsctt/setup_vm.git
 sudo -u ubuntu bash -c setup_vm/oci_setup.sh
 ```
 
+Find logs at:
+ - `/var/log/cloud-init.log`
+ - `/var/log/cloud-init-output.log`
 
 ## gcloud
 
