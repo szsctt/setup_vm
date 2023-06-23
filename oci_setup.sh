@@ -12,7 +12,7 @@ cd /home/ubuntu
 curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
 bin/micromamba shell init -s bash -p /home/ubuntu/conda
   
-eval "$(bin/micromamba shell hook --shell=bash)"
+eval "$(bin/micromamba shell hook --shell=bash --prefix /home/ubuntu/conda)"
 bin/micromamba activate base
 bin/micromamba install -c conda-forge pip -y
 /home/ubuntu/conda/bin/pip install oci-cli pynvim
