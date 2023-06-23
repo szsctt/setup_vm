@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 sudo apt-get update && sudo apt-get install -y tmux wget git nodejs bzip2 tar libfuse2
 
@@ -28,7 +29,8 @@ wget -O /home/ubuntu/bin/nvim.appimage  https://github.com/neovim/neovim/release
 chmod u+x /home/ubuntu/bin/nvim.appimage
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-source /home/ubuntu/.bashrc
+export NVM_DIR="/home/ubuntu/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm install stable --reinstall-packages-from=current
 
 git clone https://github.com/github/copilot.vim \
