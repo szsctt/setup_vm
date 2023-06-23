@@ -12,8 +12,10 @@ if [ ! -e bin/micromamba ]; then
   curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
   bin/micromamba shell init -s bash -p /home/ubuntu/conda
 fi
-  
-eval "$(bin/micromamba shell hook --shell=bash --prefix /home/ubuntu/conda)"
+
+export MAMBA_EXE="/home/ubuntu/bin/micromamba"
+export MAMBA_ROOT_PREFIX="/home/ubuntu/conda"
+eval "$(bin/micromamba shell hook --shell=bash)"
 bin/micromamba install -n base -c conda-forge pip -y
 /home/ubuntu/conda/bin/pip install oci-cli pynvim
   
