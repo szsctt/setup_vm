@@ -7,7 +7,7 @@ cloud-init script:
 #!/bin/bash
 sleep 60
 git clone https://github.com/szsctt/setup_vm.git
-sudo -u ubuntu bash -c setup_vim/oci_setup.sh
+sudo -u ubuntu bash -c setup_vm/oci_setup.sh
 ```
 
 
