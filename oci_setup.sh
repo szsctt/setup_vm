@@ -18,7 +18,7 @@ export MAMBA_EXE="/home/ubuntu/bin/micromamba"
 export MAMBA_ROOT_PREFIX="/home/ubuntu/conda"
 eval "$(bin/micromamba shell hook --shell=bash)"
 bin/micromamba install -n base -c conda-forge pip -y
-/home/ubuntu/conda/bin/pip install oci-cli pynvim
+/home/ubuntu/conda/bin/pip install oci-cli pynvim rclone
   
 echo 'alias mamba=micromamba' >> /home/ubuntu/.bashrc
 echo 'alias conda=micromamba' >> /home/ubuntu/.bashrc
