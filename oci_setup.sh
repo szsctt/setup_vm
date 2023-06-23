@@ -3,8 +3,7 @@ set -e
 
 sudo apt-get update && sudo apt-get install -y tmux wget git nodejs bzip2 tar libfuse2
 
-mkdir -p /home/ubuntu/.config/nvim
-cp init.vim /home/ubuntu/.config/nvim/init.vim
+
 
 cd /home/ubuntu
 
@@ -28,6 +27,9 @@ source /home/ubuntu/.bashrc
 sudo add-apt-repository universe -y && sudo apt-get install -y libfuse2
 wget -O /home/ubuntu/bin/nvim.appimage  https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
 chmod u+x /home/ubuntu/bin/nvim.appimage
+
+mkdir -p /home/ubuntu/.config/nvim
+cp /home/ubuntu/setup_vm/init.vim /home/ubuntu/.config/nvim/init.vim
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 export NVM_DIR="/home/ubuntu/.nvm"
