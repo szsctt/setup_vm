@@ -7,6 +7,7 @@ cloud-init script:
 #!/bin/bash
 sleep 60
 cd /home/ubuntu/
+export DEBIAN_FRONTEND=noninteractive
 git clone https://github.com/szsctt/setup_vm.git
 sudo chown -R ubuntu:ubuntu /home/ubuntu/setup_vm
 sudo -u ubuntu bash -c bash /home/ubuntu/setup_vm/oci_setup.sh
