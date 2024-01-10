@@ -42,6 +42,12 @@ nvm install stable --reinstall-packages-from=current
 git clone https://github.com/github/copilot.vim \
    /home/ubuntu/.config/nvim/pack/github/start/copilot.vim
 
+# OCI utils - not included by default on ubuntu
+git clone https://github.com/oracle/oci-utils.git
+cd oci-utils
+python3 ./setup.py build
+sudo python3 ./setup.py install
+
 # docker
 if ! which docker; then
 curl -fsSL https://get.docker.com -o get-docker.sh
