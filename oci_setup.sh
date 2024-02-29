@@ -48,6 +48,10 @@ cd oci-utils
 python3 ./setup.py build
 sudo python3 ./setup.py install
 
+# chrome remote desktop
+wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb -P /tmp
+sudo apt install /tmp/chrome-remote-desktop_current_amd64.deb
+
 # docker
 if ! which docker; then
 curl -fsSL https://get.docker.com -o get-docker.sh
