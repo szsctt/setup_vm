@@ -25,6 +25,11 @@ echo 'alias conda=micromamba' >> /home/ubuntu/.bashrc
 echo 'export PATH="/home/ubuntu/bin:$PATH"' >> /home/ubuntu/.bashrc
 export PATH="/home/ubuntu/bin:$PATH"
 
+# set up oci cli
+echo 'export OCI_CLI_AUTH=instance_principal' >> ~/.bashrc 
+source ~/.bashrc 
+oci setup autocomplete --auth instance_principal 
+
 # nvim
 sudo add-apt-repository universe -y && sudo apt-get install -y libfuse2
 wget -O /home/ubuntu/bin/nvim.appimage  https://github.com/neovim/neovim/releases/download/v0.9.0/nvim.appimage
