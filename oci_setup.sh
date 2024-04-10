@@ -64,29 +64,14 @@ sh ./get-docker.sh
 rm get-docker.sh
 fi
 
-# singularity 
+# apptainer
+# https://apptainer.org/docs/admin/main/installation.html#installation-on-linux
 if ! which singularity; then
 sudo apt-get install -y \
-   build-essential \
-   libseccomp-dev \
-   pkg-config \
-   squashfs-tools \
-   cryptsetup \
-   libglib2.0-dev
+   software-properties-common
 
-wget https://go.dev/dl/go1.19.linux-amd64.tar.gz &&\
-      sudo tar -C /usr/local -xzvf go1.19.linux-amd64.tar.gz &&\
-      rm go1.19.linux-amd64.tar.gz
+sudo add-apt-repository -y ppa:apptainer/ppa
+sudo apt update
+sudo apt install -y apptainer
 
-echo 'export PATH=/usr/local/go/bin:$PATH' >> /home/ubuntu/.bashrc
-export PATH=/usr/local/go/bin:$PATH
-
-export VERSION=3.11.0 && # adjust this as necessary \
-    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-ce-${VERSION}.tar.gz && \
-    tar -xzf singularity-ce-${VERSION}.tar.gz && \
-    cd singularity-ce-${VERSION}
-
-./mconfig && \
-    make -C builddir && \
-    sudo make -C builddir install
 fi
